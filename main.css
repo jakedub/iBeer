@@ -11,15 +11,26 @@ COLORS:
 light tan: #eeebda
 
 */
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+
 body{
     font-family: 'Noto Serif', serif;
     line-height: 1.8;
     margin: 0;
     background-color: #eeebda;
+    width: 1280px;
+    margin: 0 auto;
+    /*display: flex;*/
 }
 h1, h2, h3{
     font-family: "Josefin Sans", sans-serif;
     margin-top: 0;
+    clear: both;
 }
 img{
     max-width: 100%;
@@ -28,16 +39,15 @@ img{
     display: block;
 }
 .wrapper{
-    width: 1000px;
-
-    /*
-        TODO: 
-        - Center up the page
-        - Create a flexbox containerer for
-        the major page sections
-    */
+    flex-basis: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 80px;
 }
 #site-header{
+  z-index: -1;
     /*
         TODO
         - Flexbox property here
@@ -47,13 +57,7 @@ img{
     text-align: center;
     padding: 60px 0 120px 0;
     font-size: 4em;
-
-    /*
-        TODO: 
-        - Add a background image "header-img.jpg"
-        make sure that the path to the image is correct
-    */
-
+    background-image: url(header-img.jpg);
     background-size: cover;
     background-position: right bottom;
 }
@@ -70,16 +74,15 @@ img{
     color: white;
     bottom: 20px;
     text-shadow: 0 5px 8px rgba( 0, 0, 0, 0.3 );
-    /*
-        TODO: 
-        - Use the script font: 'Dancing Script' fot this text
-    */
+    /*display: flex;*/
+    font-family: "Dancing Script" sans-serif;
 }
+
 #main-navigation{
     background: #444;
-
+    display: flex;
     /*
-        TODO: 
+        TODO:
         - Use Flexbox to arrange the navigation links
     */
 }
@@ -89,9 +92,11 @@ img{
     text-decoration: none;
     text-transform: uppercase;
     padding: 10px 20px;
+    align-content: space-between;
+    /* NOTE: Created space between but issue with articles */
 
     /*
-        TODO: 
+        TODO:
         - Flexbox - Create general spacing between nav links
     */
 }
@@ -99,7 +104,7 @@ img{
     margin-right: 400px;
 
     /*
-        TODO: 
+        TODO:
         - Flexbox - The logo needs to take up more space
         that the other links
     */
@@ -108,8 +113,15 @@ main{
     padding: 20px;
     background-color: #444;
     box-shadow: -5px 5px 8px rgba( 0, 0, 0, 0.3 );
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 1;
+    position: relative;
+     /* NOTE: width added but need to move items */
     /*
-        TODO: 
+        TODO:
         - Flexbox: Set the starting width of this element
         - Use relative positioning to bump this upward
     */
@@ -118,8 +130,11 @@ aside{
     padding: 20px;
     background-color: #eee;
     box-shadow: 5px 5px 8px rgba( 0, 0, 0, 0.3 );
+    width: 200px;
+    flex-direction: column;
+    display: flex;
     /*
-        TODO: 
+        TODO:
         - Flexbox: Set the starting width of this element
         - Use relative positioning to bump this upward
     */
@@ -140,6 +155,9 @@ article{
     box-shadow: -5px 5px 8px rgba( 0, 0, 0, 0.3 );
     padding: 20px;
     margin-bottom: 20px;
+    flex-basis: 100px;
+    /*justify-content: space-around;
+    flex-direction: column;*/
 }
 article h2{
     line-height: 1em;
@@ -158,37 +176,31 @@ article time{
     color: #666;
 }
 article img{
+  float:right;
+    /* NOTE: Floated to right but stuck in the middle at the moment */
     /*
-        TODO: 
+        TODO:
         - Float article images to the right
         and match sizes and spacing to the mockup
     */
 }
 article footer p{
+  clear:both;
     /*
-        TODO: 
+        TODO:
         - Style the article footer
         HINT: Look to the article header;
     */
 }
 #site-footer{
-    
     background: #333;
-    /*
-        TODO: 
-        - Style the site footer
-    */
+    color: white;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+div h3{
+  justify-content: center;
+  font-family: "Dancing script", cursive;
+}
